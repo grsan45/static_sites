@@ -43,6 +43,7 @@ a:hover {
 input,button{
     margin: 10px auto;
     font-size: 14pt;
+    border-radius: 5px;
 }
 
 .indent {
