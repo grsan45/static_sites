@@ -37,6 +37,7 @@
     </div>
 
     <h1 style="font-weight: 100; font-size: 72px" id="generatedName"></h1>
+    <h4 id="nameTaken"></h4>
     <button onclick="updateName()" id="regen"> Regenerate Name</button>
 
     <script src="../js/jquery-3.5.1.min.js"></script>
@@ -48,10 +49,13 @@
         // reference elements
         let generatedName = $("#generatedName");
         let ogName = $("#ogname");
+
         let addPrefix = $("#addPrefix");
         let addSuffix = $("#addSuffix");
         let replaceVowels = $("#replaceVowels");
+
         let regenerateName = $("#regen");
+        let nameTaken = $("#nameTaken");
 
         // page setup
         $("#addPrefixLabel").append("<span class='indent faded'>Prefixes: <b>" + prefixes.join(", ") + "</b></span>");
@@ -95,6 +99,20 @@
                 let suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
                 name = name + suffix;
             }
+
+            // i hate cors
+            fetch(`https://cors-anywhere.herokuapp.com/api.mojang.com/users/profiles/minecraft/${name}`)
+                .then(res => {
+                    if (res.status === 204) {
+                        if (name.length < 3)
+                            nameTaken.html("<span style='color: #b3414e'> This name is too short! (Minimum 3 chars) </span>");
+                        else
+                            nameTaken.html("<span style='color: #4eb359'> This name is free! (big surprise) </span>");
+                    } else if (res.status === 200) //doing else if so if for some reason we get a 404 or a 500 - we don't return incorrect infro
+                        nameTaken.html("<span style='color: #b3414e'> This name is taken... how? </span>");
+                    else
+                        nameTaken.text("");
+                });
 
             generatedName.text(name);
         }
