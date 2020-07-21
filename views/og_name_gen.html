@@ -10,36 +10,44 @@
 </head>
 <body>
 
-    <h1>"OG" Name generator</h1>
-    <p style="font-size: 10pt; font-style: italic">Disclaimer about the name availability checker: the request can take some time - also don't go crazy, mojang will ip block you</p>
-    <hr>
+    <div class="content">
 
-    <h3>Name to "Og"-ify</h3>
-    <input type="text" name="name" id="ogname" class="indent" autocomplete="off" placeholder="OG Name"><br>
+        <h1>"OG" Name Generator</h1>
+        <h4>Created by Grsan#6969</h4>
+        <hr>
 
-    <h3>"Og"-ifiers:</h3>
+        <h3>Name to "Og"-ify</h3>
+        <input type="text" name="name" id="ogname" class="indent" autocomplete="off" placeholder="OG Name"><br>
 
-    <div class="indent">
+        <h3>"Og"-ifiers:</h3>
 
-        <input type="checkbox" name="prefix" id="addPrefix">
-        <label for="addPrefix" id="addPrefixLabel">
-            Add a prefix?
-        </label><br>
+        <div class="indent">
 
-        <input type="checkbox" name="suffix" id="addSuffix">
-        <label for="addSuffix" id="addSuffixLabel">
-            Add a suffix?
-        </label><br>
+            <input type="checkbox" name="prefix" id="addPrefix">
+            <label for="addPrefix" id="addPrefixLabel">
+                Add a prefix?
+            </label><br>
 
-        <input type="checkbox" name="vowel" id="replaceVowels">
-        <label for="replaceVowels">
-            Replace vowels with 'x' or 'q'?
-        </label><br>
+            <input type="checkbox" name="suffix" id="addSuffix">
+            <label for="addSuffix" id="addSuffixLabel">
+                Add a suffix?
+            </label><br>
+
+            <input type="checkbox" name="vowel" id="replaceVowels">
+            <label for="replaceVowels">
+                Replace vowels with 'x' or 'q'?
+            </label><br>
+        </div>
+
+        <h1 style="font-weight: 100; font-size: 72px" id="generatedName"></h1>
+        <h4 id="nameTaken"></h4>
+        <button onclick="updateName()" id="regen"> Regenerate Name</button>
+
     </div>
 
-    <h1 style="font-weight: 100; font-size: 72px" id="generatedName"></h1>
-    <h4 id="nameTaken"></h4>
-    <button onclick="updateName()" id="regen"> Regenerate Name</button>
+    <p class="footer" >
+        Disclaimer about the name availability checker: &emsp;The request can take some time - also don't go crazy with spamming characters, Mojang will temporarily block your IP if you do.
+    </p>
 
     <script src="../js/jquery-3.5.1.min.js"></script>
 
