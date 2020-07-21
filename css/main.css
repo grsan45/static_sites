@@ -15,9 +15,19 @@ body {
     display: block;
 }
 
+ul {
+    list-style: none;
+    font-size: 14pt;
+}
+
+ul li {
+    padding: 2px 0;
+}
+
 a {
     color: #5baae5;
-    transition: color 0.25s ease;
+    transition: color 0.15s ease;
+    text-decoration: none;
 }
 
 a:hover {
