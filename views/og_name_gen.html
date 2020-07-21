@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>"OG" Name generator</title>
+    <link href="../css/main.css" rel="stylesheet">
+</head>
+<body>
+
+    <h1>"OG" Name generator</h1>
+    <hr>
+
+    <h3>Name to "Og"-ify</h3>
+    <input type="text" name="name" id="ogname" class="indent" autocomplete="off" placeholder="OG Name"><br>
+
+    <h3>"Og"-ifiers:</h3>
+
+    <div class="indent">
+
+        <input type="checkbox" name="prefix" id="addPrefix">
+        <label for="addPrefix" id="addPrefixLabel">
+            Add a prefix?
+        </label><br>
+
+        <input type="checkbox" name="suffix" id="addSuffix">
+        <label for="addSuffix" id="addSuffixLabel">
+            Add a suffix?
+        </label><br>
+
+        <input type="checkbox" name="vowel" id="replaceVowels">
+        <label for="replaceVowels">
+            Replace vowels with 'x' or 'q'?
+        </label><br>
+    </div>
+
+    <h1 style="font-weight: 100; font-size: 72px" id="generatedName"></h1>
+    <button onclick="updateName()" id="regen"> Regenerate Name</button>
+
+    <script src="../js/jquery-3.5.1.min.js"></script>
+
+    <script>
+        const prefixes = ["Re", "Dis", "Un", "De"];
+        const suffixes = ["icated", "ified", "ity", "ness", "ify"];
+
+        // reference elements
+        let generatedName = $("#generatedName");
+        let ogName = $("#ogname");
+        let addPrefix = $("#addPrefix");
+        let addSuffix = $("#addSuffix");
+        let replaceVowels = $("#replaceVowels");
+        let regenerateName = $("#regen");
+
+        // page setup
+        $("#addPrefixLabel").append("<span class='indent faded'>Prefixes: <b>" + prefixes.join(", ") + "</b></span>");
+        $("#addSuffixLabel").append("<span class='indent faded'>Suffixes: <b>" + suffixes.join(", ") + "</b></span>");
+        regenerateName.hide();
+
+        // the output "og" name
+        let name = "";
+
+        ogName.on("input", () => {
+            updateName();
+        });
+
+        addPrefix.add(addSuffix).add(replaceVowels).change(updateName);
+
+        // this code is in a method since I need to apply the modifiers in a specific order,
+        // rather than applying modifiers in the order they are activated
+        function updateName() {
+            name = ogName.val();
+
+            // doing this to prevent the output being something like "Disity" when the name field is emptied
+            if (!name) {
+                regenerateName.hide();
+                return;
+            }
+
+            // show the regenerate name button if the name isn't empty (not the best place but it'll work)
+            regenerateName.show();
+
+            //TODO: only replace some vowels and allow custom replacement filters
+            if (replaceVowels.prop("checked"))
+                name = name.replace(/[aeiou]+?/g, Math.round(Math.random()) === 1 ? 'x' : 'q');
+
+            //TODO: maybe don't add a prefix/suffix if the og name already has one as to prevent "ReDisTxstifyicated"
+            if (addPrefix.prop("checked")) {
+                let prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+                name = prefix + name;
+            }
+
+            if (addSuffix.prop("checked")) {
+                let suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+                name = name + suffix;
+            }
+
+            generatedName.text(name);
+        }
+    </script>
+
+</body>
+</html>

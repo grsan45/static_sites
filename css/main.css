@@ -1,16 +1,38 @@
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 /*
- Above font is roboto normal
+ Above font is Roboto Light (300)
  */
 
 * {
     font-family: 'Roboto', sans-serif;
+}
+
+body {
+    padding: 40px;
+    background-color: #0f0f0f;
+    color: #ffffff;
+
+    display: block;
+}
+
+a {
+    color: #5baae5;
+    transition: color 0.25s ease;
+}
+
+a:hover {
+    color: #4b80b3
+}
+
+input,button{
+    margin: 10px auto;
+    font-size: 14pt;
+}
+
+.indent {
+    margin-left: 25px;
+}
+
+.faded {
+    color: #99999f;
 }
