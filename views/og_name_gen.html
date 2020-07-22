@@ -101,11 +101,25 @@
             // show the regenerate name button if the name isn't empty (not the best place but it'll work)
             regenerateName.show();
 
-            //TODO: only replace some vowels and allow custom replacement filters
-            if (replaceVowels.prop("checked"))
-                name = name.replace(/[aeiou]+?/g, Math.round(Math.random()) === 1 ? 'x' : 'q');
+            //TODO: Advanced Options
+            //TODO:   - Replacement Ratio?
+            //TODO:   - Custom replacement filters
+            if (replaceVowels.prop("checked")) {
 
-            //TODO: maybe don't add a prefix/suffix if the og name already has one as to prevent "ReDisTxstifyicated"
+                let vowel = Math.round(Math.random()) ? 'x' : 'q';
+
+                //this is using negative lookahead which should work on 90% of browsers but if it doesn't then uhh stop using netscape navigator
+                let match = "", re =/[aeiou](?![aeiou])+?/g, indexes = [];
+                while ((match = re.exec(name)) != null && Math.round(Math.random())) {
+                    indexes.push(match.index); //@JS and ECMAScript teams - GIVE US AN INDEX PROPERTY ON MATCHES FROM String.prototype.match() SO I DONT HAVE TO DO THIS CRAP
+                }
+
+                indexes.forEach((i) => {
+                    name = name.substring(0, i) + vowel + name.substring(i + 1);
+                })
+            }
+
+            //TODO: maybe don't add a prefix/suffix if the og name already has one as to prevent "ReDisGrsxnifyicated"
             if (addPrefix.prop("checked")) {
                 let prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
                 name = prefix + name;
@@ -124,8 +138,10 @@
                             nameTaken.html("<span style='color: #b3414e'> This name is too short! (Minimum 3 chars) </span>");
                         else
                             nameTaken.html("<span style='color: #4eb359'> This name is free! (big surprise) </span>");
-                    } else if (res.status === 200) //doing else if so if for some reason we get a 404 or a 500 - we don't return incorrect infro
+                    } else if (res.status === 200) //doing else if so if for some reason we get a 404 or a 500 - we don't return incorrect infr
                         nameTaken.html("<span style='color: #b3414e'> This name is taken... how? </span>");
+                    else if (res.status === 400)
+                        nameTaken.html("<span style='color: #b3414e'> This name is too long bud </span>");
                     else
                         nameTaken.text("");
                 });
