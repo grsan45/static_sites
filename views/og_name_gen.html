@@ -27,7 +27,7 @@
 
         <h3>"Og"-ifiers:</h3>
 
-        <div class="indent">
+        <div class="indent" id="optionWrapper">
 
             <input type="checkbox" name="prefix" id="addPrefix">
             <label for="addPrefix" id="addPrefixLabel">
@@ -40,8 +40,8 @@
             </label><br>
 
             <input type="checkbox" name="vowel" id="replaceVowels">
-            <label for="replaceVowels">
-                Replace vowels with 'x' or 'q'?
+            <label for="replaceVowels" id="replaceVowelsLabel">
+                Replace vowels with 'x' or 'q'? <span id="vowelInfo" class="indent faded"></span>
             </label><br>
         </div>
 
@@ -52,6 +52,7 @@
     </div>
 
     <p class="footer" >
+        This project is so stupid and so unnecessarily complex - it has literally taken 8 hours of my life<br>
         Disclaimer about the name availability checker: &emsp;The request can take some time - also don't go crazy with spamming characters, Mojang will temporarily block your IP if you do.
     </p>
 
