@@ -8,7 +8,7 @@
 
     <meta property="og:title" content="'OG' Name Generator">
     <meta property="og:description" content="An 'OG' name generator for Minecraft - Made by Grsan#6969">
-    <meta property="og:image" content="https://cdn.discordapp.com/avatars/212023153499570177/c986cd70349644d96a640d4d5151a013.webp?size=256">
+    <meta property="og:image" content="../images/discordavatar.png">
 
 
     <link rel="shortcut icon" href="../favicon.ico?" type="image/x-icon">
@@ -18,43 +18,63 @@
 </head>
 <body>
 
-    <div class="content">
+    <div class="container">
 
         <a href="../index.html">&larr;</a>
-        <h1>"OG" Name Generator</h1>
-        <h4>Created by Grsan#6969</h4>
+
+        <div class="row">
+            <h1 class="column">"OG" Name Generator</h1>
+            <h3 class="column">Discord: <b>Grsan#6969</b></h3>
+        </div>
         <hr>
 
-        <h3>Name to "Og"-ify</h3>
-        <input type="text" name="name" id="ogname" class="indent" autocomplete="off" placeholder="OG Name"><br>
+        <div class="row">
+            <div class="column">
+                <h3>Name to "Og"-ify</h3>
+                <input type="text" name="name" id="ogname" class="indent" autocomplete="off" placeholder="OG Name"><br>
 
-        <h3>"Og"-ifiers:</h3>
+                <h3>"Og"-ifiers:</h3>
 
-        <div class="indent" id="optionWrapper">
+                <div class="indent" id="optionWrapper">
 
-            <input type="checkbox" name="prefix" id="addPrefix">
-            <label for="addPrefix" id="addPrefixLabel">
-                Add a prefix?
-            </label><br>
+                    <div class="row">
+                        <input type="checkbox" name="prefix" id="addPrefix">
+                        <label for="addPrefix" id="addPrefixLabel">
+                            Add a prefix?
+                        </label>
+                    </div>
 
-            <input type="checkbox" name="suffix" id="addSuffix">
-            <label for="addSuffix" id="addSuffixLabel">
-                Add a suffix?
-            </label><br>
+                    <div class="row">
+                        <input type="checkbox" name="suffix" id="addSuffix">
+                        <label for="addSuffix" id="addSuffixLabel">
+                            Add a suffix?
+                        </label>
+                    </div>
 
-            <input type="checkbox" name="vowel" id="replaceVowels">
-            <label for="replaceVowels" id="replaceVowelsLabel">
-                Replace vowels with 'x' or 'q'? <span id="vowelInfo" class="indent faded"></span>
-            </label><br>
+                    <div class="row">
+                        <input type="checkbox" name="vowel" id="replaceVowels">
+                        <label for="replaceVowels" id="replaceVowelsLabel">
+                            Replace vowels with 'x' or 'q'?
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column center-items">
+                <h1 style="font-weight: 100; font-size: 72px" id="generatedName"></h1>
+                <h4 id="nameTaken"></h4>
+                <button onclick="updateName()" id="regen"> Regenerate Name</button>
+            </div>
         </div>
-
-        <h1 style="font-weight: 100; font-size: 72px" id="generatedName"></h1>
-        <h4 id="nameTaken"></h4>
-        <button onclick="updateName()" id="regen"> Regenerate Name</button>
 
     </div>
 
     <p class="footer" >
+        <!-- Having this as a <p> tag breaks indentation its so weird what-->
+        <span class="faded">Info on the vowel replacement system:
+            <b>For every vowel group (i.e. eai) only the last vowel is selected, and every vowel has a 50% chance of being changed to the replacement char (x or q)</b>
+        </span><br><br>
+
         This project is so stupid and so unnecessarily complex - it has literally taken 8 hours of my life<br>
         Disclaimer about the name availability checker: &emsp;The request can take some time - also don't go crazy with spamming characters, Mojang will temporarily block your IP if you do.
     </p>
