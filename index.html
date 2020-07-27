@@ -20,6 +20,7 @@
             <div class="row">
                 <h1 class="column">Grsan's static sites</h1>
                 <div class="column-inline">
+                    <h3><a href="https://github.com/grsan69">Github</a></h3>
                     <h3><a href="https://twitter.com/grsan69">Twitter</a></h3>
                     <h3><a href="https://www.youtube.com/channel/UCG5NjE7IW06BfqhOeFIwjqQ">Youtube</a></h3>
                     <h3>Discord: <b>Grsan#6969</b></h3>
@@ -33,9 +34,31 @@
                 <li><a href="#">TBA</a></li>
             </ul>
         </div>
-        <div class="footer">
-            This website and all projects on it are licensed under GNU-GPLv3<br>
-            If you would like me to remove any pages for legal reasons please DM me on Discord or Github
+        <div class="footer faded">
+            <p>
+                <span id="lastUpdate"></span><br><br>
+                This website and all projects on it are licensed under GNU-GPLv3<br>
+                If you would like me to remove any pages for legal reasons please DM me on Discord or Github</p>
         </div>
+
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script>
+            $.ajax({
+                url: "https://cors-anywhere.herokuapp.com/api.github.com/repos/grsan69/static_sites/commits",
+                success: (res) => {
+                    console.log(res);
+                    var date = new Date(res[0].commit.committer.date);
+                    var dateString = date.toLocaleString("en-US");
+
+                    var commitUrl = res[0].html_url;
+                    var commitId = res[0].sha.substring(0, 7);
+
+                    $("#lastUpdate").html(() => {
+                        return `Last Update: <b>${dateString}</b> - <a href="${commitUrl}">${commitId}</a>`
+                    })
+                }
+            })
+        </script>
+
     </body>
 </html>

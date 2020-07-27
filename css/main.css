@@ -57,6 +57,14 @@ Acts like a column... and a row - elements inside are inline
     margin: 0 10px 40px 40px;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
 /*
 Tag specific
  */
