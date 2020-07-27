@@ -30,7 +30,7 @@
 
             <ul>
                 <li><a href="views/og_name_gen.html">"OG" name generator</a></li>
-                <li><a href="#">TBA</a></li>
+                <li><a href="#">HypixelStats - Coming soon (name pending)</a></li>
                 <li><a href="#">TBA</a></li>
             </ul>
         </div>
@@ -46,7 +46,6 @@
             $.ajax({
                 url: "https://cors-anywhere.herokuapp.com/api.github.com/repos/grsan69/static_sites/commits",
                 success: (res) => {
-                    console.log(res);
                     var date = new Date(res[0].commit.committer.date);
                     var dateString = date.toLocaleString("en-US");
 
