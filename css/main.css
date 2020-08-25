@@ -65,6 +65,26 @@ Acts like a column... and a row - elements inside are inline
     text-align: right;
 }
 
+.anchor-top {
+    align-self: flex-start;
+}
+
+.gallery {
+    display:grid;
+    grid-gap:10px;
+    grid-template-columns: auto auto auto;
+}
+
+.gallery>a>img {
+    filter: brightness(100%);
+    transition: filter 0.5s ease;
+    image-rendering: pixelated;
+}
+
+.gallery>a>img:hover {
+    filter: brightness(110%);
+}
+
 /*
 Tag specific
  */
@@ -101,7 +121,7 @@ h3 {
 ul li {
     list-style: none;
     font-size: 14pt;
-    padding: 2px 0;
+    padding: 4px 0;
 }
 
 a {

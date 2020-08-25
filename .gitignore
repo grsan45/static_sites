@@ -1,3 +1,8 @@
 .idea/
 *.iml
 tokens.js
+
+# private versions of images
+images/nadur/unprocessed
+images/nadur/logo.png
+images/nadur/processimages.py
