@@ -3,6 +3,11 @@
  Above font is Roboto Light (300)
  */
 
+body {
+    background-color:#1a1a1a
+}
+
 * {
     font-family: 'Roboto', sans-serif;
+    color:#fafafa
 }
