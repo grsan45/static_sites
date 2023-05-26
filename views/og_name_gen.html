@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <meta property="og:title" content="'OG' Name Generator">
-    <meta property="og:description" content="An 'OG' name generator for Minecraft - Made by Grsan#6969">
+    <meta property="og:description" content="An 'OG' name generator for Minecraft">
     <meta property="og:image" content="../images/discordavatar.png">
 
     <link rel="shortcut icon" href="../favicon.ico?" type="image/x-icon">
@@ -20,14 +20,23 @@
 <body>
     <div class="container-fluid">
 
-        <a href="../index.html" title="Go home">&larr;</a>
+        <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
+            <a class="navbar-brand" id="title" href="../index.html">Grayson's <em>things</em></a>
+            <div class="collapse navbar-collapse me-auto">
+                <ul class="navbar-nav align-self-end">
+                    <li class="nav-item active"><a href="https://github.com/grsan45" class="nav-link">Github</a></li>
+                    <li class="nav-item active"><a href="https://twitter.com/grsan69" class="nav-link">Twitter</a></li>
+                    <li class="nav-item active"><a href="https://www.youtube.com/@grsan45" class="nav-link">Youtube</a></li>
+                </ul>
+            </div>
+        </nav>
+        <hr>
 
         <div class="row">
             <h1 class="column-inline">
                 "OG" Name generator
             </h1>
         </div>
-        <hr>
 
         <div class="row">
             <div class="col-md-4 d-flex justify-content-start flex-column">
@@ -37,17 +46,17 @@
                 <h3>"Og"-ifiers:</h3>
                 <div class="btn-group-vertical" role="group">
                     <input type="checkbox" name="prefix" class="btn-check" id="addPrefix">
-                    <label for="addPrefix" class="btn btn-outline-info" id="addPrefixLabel">
+                    <label for="addPrefix" class="btn btn-outline-primary" id="addPrefixLabel">
                         Add a prefix?
                     </label>
 
                     <input type="checkbox" name="suffix" class="btn-check" id="addSuffix">
-                    <label for="addSuffix" class="btn btn-outline-info" id="addSuffixLabel">
+                    <label for="addSuffix" class="btn btn-outline-primary" id="addSuffixLabel">
                         Add a suffix?
                     </label>
 
                     <input type="checkbox" name="vowel" class="btn-check" id="replaceVowels">
-                    <label for="replaceVowels" class="btn btn-outline-info" id="replaceVowelsLabel">
+                    <label for="replaceVowels" class="btn btn-outline-primary" id="replaceVowelsLabel">
                         Replace vowels with 'x' or 'q'?
                     </label>
                 </div>
@@ -55,7 +64,7 @@
 
             <div class="col-md-8 d-flex justify-content-center align-items-center flex-column">
                 <h1 style="font-weight: 100; font-size: 72px; text-align:center" id="generatedName"></h1>
-                <button onclick="updateName()" id="regen" class="btn btn-outline-info" style="width: 25%"> Regenerate Name</button>
+                <button onclick="updateName()" id="regen" class="btn btn-outline-primary" style="width: 25%"> Regenerate Name</button>
             </div>
         </div>
 
