@@ -1,4 +1,4 @@
-# [Grayson's Static sites](https://mcdev.life)
+# [Grayson's Static sites](https://grsan.xyz)
 
 Hi, these are my static sites, which are just fun and/or stupid <sub><sup>*(mostly stupid)*</sup></sub> projects.
 
