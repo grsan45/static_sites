@@ -7,6 +7,10 @@ body {
     background-color:#1a1a1a
 }
 
+ul {
+    list-style-type: "- ";
+}
+
 * {
     font-family: 'Roboto', sans-serif;
     color:#fafafa
