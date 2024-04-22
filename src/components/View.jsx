@@ -7,7 +7,7 @@ const View = ({children}) => {
     return (
         <div className="container-fluid">
             <nav className="navbar navbar-expand-lg navbar-dark justify-content-between">
-                <a className="navbar-brand" id="title" href="#">Grayson's <em>things</em></a>
+                <a className="navbar-brand" id="title" href="/">Grayson's <em>things</em></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlinks">
                     <span className="navbar-toggler-icon"></span>
                 </button>
