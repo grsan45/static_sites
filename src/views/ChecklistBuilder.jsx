@@ -1,12 +1,12 @@
 import React from 'react';
 import View from "../components/View";
 
-const OGNameGen = () => {
+const ChecklistBuilder = () => {
     return (
         <View>
-            <h2>Being migrated...</h2>
+            <h2>Under construction...</h2>
         </View>
     );
 };
 
-export default OGNameGen;
+export default ChecklistBuilder;
