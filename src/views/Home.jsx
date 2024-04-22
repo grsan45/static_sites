@@ -1,14 +1,13 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-
-import OGNameGen from "./OGNameGen";
+import View from "../components/View"
 
 const Home = () => {
     return (
-        <div>
-            <h1>Hello World!</h1>
-            <Link to={"/og_name_gen"}>OG Name Gen</Link>
-        </div>
+         <View>
+             <h1>Hello World!</h1>
+             <Link to={"/og_name_gen"}>OG Name Generator</Link>
+         </View>
     );
 };
 

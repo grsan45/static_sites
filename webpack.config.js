@@ -11,11 +11,12 @@ module.exports = {
     mode: "development",
     plugins: [
         new HtmlWebpackPlugin({
-            title: "Grsan's Static Sites"
+            title: "Grsan's Static Sites",
+            favicon: "static/favicon.ico"
         }),
         new CopyPlugin({
             patterns: [
-                "CNAME"
+                {from:"static"}
             ]
         })
     ],
