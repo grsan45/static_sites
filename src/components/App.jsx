@@ -5,7 +5,7 @@ import Home from "../views/Home"
 import OGNameGen from "../views/OGNameGen"
 import GOOSE from "../views/GOOSE";
 import ChecklistBuilder from "../views/ChecklistBuilder";
-import NotFound from "../views/404";
+import NoMatch from "../views/NoMatch";
 
 
 const App = () => {
@@ -17,9 +17,9 @@ const App = () => {
 
                     <Route exact path="og_name_gen" element={<OGNameGen />}/>
                     <Route exact path="goose" element={<GOOSE />}/>
-                    <Route exact path="checklist_builder" element={<ChecklistBuilder />}/>
+                    <Route exact path="checklist_builde" element={<ChecklistBuilder />}/>
 
-                    <Route element={<NotFound />} />
+                    <Route path="*" element={<NoMatch status={404} />}/>
                 </Routes>
             </div>
         </Router>
