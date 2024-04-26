@@ -4,6 +4,7 @@
   "main": "index.js",
   "author": "Grayson Amendt <grsan45@gmail.com>",
   "license": "GPL-3.0+",
+  "homepage": "https://grsan.xyz",
   "private": true,
   "repository": {
     "type": "git",
