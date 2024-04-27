@@ -1,6 +1,6 @@
 import React, {Children} from "react";
 
-const NavColumn = ({title, children, ...props}) => {
+const NavColumn = ({title, children}) => {
     return (
         <div className="col-md-4 d-flex justify-content-start flex-column">
             <ul>

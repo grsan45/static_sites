@@ -24,7 +24,7 @@ const View = ({children}) => {
             </nav>
             <hr/>
 
-            <div className="row">{children}</div>
+            <div className="row gy-5">{children}</div>
 
             <div className="container-fluid fixed-bottom opacity-75">
                 <p>This website and all projects, unless otherwise stated, are licensed under GNU-GPLv3</p>
