@@ -9,17 +9,40 @@ class OGNameGen extends React.Component {
         super(props);
         this.state = {
             outputName: "",
-            inputName: ""
-        }
+            inputName: "",
+            addPrefix: false,
+            addSuffix: false,
+            replaceVowels: false
+        };
 
         this.prefixes = ["Re", "Dis", "Un", "De"];
         this.suffixes = ["icated", "ified", "ity", "ness", "ify"];
     }
 
-    generateName = (inputName) => {
-        if (inputName !== undefined)
-            this.setState({inputName: inputName})
+    updateInputName = (fieldContent) => {
+        this.setState({inputName: fieldContent === undefined ? '' : fieldContent}, this.generateName)
     }
+
+    generateName = () => {
+        let generatedName = this.state.inputName;
+
+        if (this.state.replaceVowels) {
+            let vowel = Math.round(Math.random()) ? 'x' : 'q';
+            generatedName = generatedName.replaceAll(/[aeiou](?![aeiou])+?/g, vowel);
+        }
+
+        if (this.state.addPrefix) {
+            let prefix = this.prefixes[Math.floor(Math.random() * this.prefixes.length)];
+            generatedName = prefix + generatedName;
+        }
+
+        if (this.state.addSuffix) {
+            let suffix = this.suffixes[Math.floor(Math.random() * this.suffixes.length)];
+            generatedName = generatedName + suffix;
+        }
+
+        this.setState({outputName: generatedName});
+    };
 
     render() {
         return (
@@ -31,18 +54,26 @@ class OGNameGen extends React.Component {
                     <label htmlFor="ogname"><h3>Name to "Og"-ify</h3></label>
                     <input type="text" name="ogname" id="ogname"
                            className="form-control bg-dark text-white"
-                           onChange={e => this.generateName(e.target.value)}/>
+                           onChange={e => this.updateInputName(e.target.value)}/>
 
                     <h3>"Og"-ifiers:</h3>
                     <div className="btn-group-vertical" role="group" style={{width: '100%'}}>
-                        <Checkbox name="addPrefix" text="Add a prefix?"/>
-                        <Checkbox name="addSuffix" text="Add a suffix?"/>
-                        <Checkbox name="replaceVowels" text="Replace vowels with 'x' or 'q'?"/>
+                        <Checkbox name="addPrefix" text="Add a prefix?"
+                                  action={e => this.setState({addPrefix: e.target.checked}, this.generateName)}/>
+                        <Checkbox name="addSuffix" text="Add a suffix?"
+                                  action={e => this.setState({addSuffix: e.target.checked}, this.generateName)}/>
+                        <Checkbox name="replaceVowels" text="Replace vowels with 'x' or 'q'?"
+                                  action={e => this.setState({replaceVowels: e.target.checked}, this.generateName)}/>
                     </div>
                 </Col>
                 <Col centered={true}>
-                    <h1 id="generatedName" style={{fontWeight: 100, textAlign: 'center'}}>{this.state.name}</h1>
-                    <Button name="generateName" text="Regenerate Name" action={this.generateName} style={{width: '50%'}}/>
+                    <h1 id="generatedName" style={{fontWeight: 100, textAlign: 'center', visibility: this.state.inputName ? 'visible' : 'hidden'}}>
+                        {this.state.outputName}
+                    </h1>
+                    <Button name="generateName"
+                            text="Regenerate Name"
+                            action={_ => this.generateName()}
+                            style={{width: '50%', visibility: this.state.inputName ? 'visible' : 'hidden'}}/>
                 </Col>
             </View>
         );
