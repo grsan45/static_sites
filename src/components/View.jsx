@@ -15,8 +15,8 @@ const View = ({children}) => {
                     <ul className="navbar-nav align-self-end">
                         <li className="nav-item active"><a href="https://github.com/grsan45"
                                                            className="nav-link">Github</a></li>
-                        <li className="nav-item active"><a href="https://twitter.com/grsan69"
-                                                           className="nav-link">Twitter</a></li>
+                        <li className="nav-item active"><a href="https://x.com/grsan45"
+                                                           className="nav-link">X/Twitter</a></li>
                         <li className="nav-item active"><a href="https://www.youtube.com/@grsan45"
                                                            className="nav-link">Youtube</a></li>
                     </ul>

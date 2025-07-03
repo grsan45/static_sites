@@ -1,7 +1,7 @@
 import React from 'react';
 import View from "../components/View";
 import Col from "../components/Col";
-import Checkbox from "../components/Form/Checkbox";
+import ToggleButton from "../components/Form/ToggleButton";
 import Button from "../components/Form/Button";
 
 class OGNameGen extends React.Component {
@@ -58,12 +58,12 @@ class OGNameGen extends React.Component {
 
                     <h3>"Og"-ifiers:</h3>
                     <div className="btn-group-vertical" role="group" style={{width: '100%'}}>
-                        <Checkbox name="addPrefix" text="Add a prefix?"
-                                  action={e => this.setState({addPrefix: e.target.checked}, this.generateName)}/>
-                        <Checkbox name="addSuffix" text="Add a suffix?"
-                                  action={e => this.setState({addSuffix: e.target.checked}, this.generateName)}/>
-                        <Checkbox name="replaceVowels" text="Replace vowels with 'x' or 'q'?"
-                                  action={e => this.setState({replaceVowels: e.target.checked}, this.generateName)}/>
+                        <ToggleButton name="addPrefix" text="Add a prefix?"
+                                      action={e => this.setState({addPrefix: e.target.checked}, this.generateName)}/>
+                        <ToggleButton name="addSuffix" text="Add a suffix?"
+                                      action={e => this.setState({addSuffix: e.target.checked}, this.generateName)}/>
+                        <ToggleButton name="replaceVowels" text="Replace vowels with 'x' or 'q'?"
+                                      action={e => this.setState({replaceVowels: e.target.checked}, this.generateName)}/>
                     </div>
                 </Col>
                 <Col centered={true}>

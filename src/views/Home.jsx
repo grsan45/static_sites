@@ -11,7 +11,7 @@ const Home = () => {
              </NavColumn>
              <NavColumn title="Utilities & Fun Things">
                  <Link to="og_name_gen">"OG" name generator</Link>
-                 <Link to="checklist_builder">Checklist Builder</Link>
+                 <Link to="checklist_builder">Rocketry Checklist Builder</Link>
              </NavColumn>
              <NavColumn title="Writes & Tutorials">
                 Coming Soon...
