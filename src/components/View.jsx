@@ -2,12 +2,13 @@ import React from "react";
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../style/main.css'
+import {Link} from "react-router-dom";
 
 const View = ({children}) => {
     return (
         <div className="container-fluid">
             <nav className="navbar navbar-expand-lg navbar-dark justify-content-between">
-                <a className="navbar-brand" id="title" href="/">Grayson's <em>things</em></a>
+                <Link to="/" className="navbar-brand" id="title">Grayson's <em>Things</em></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlinks">
                     <span className="navbar-toggler-icon"></span>
                 </button>

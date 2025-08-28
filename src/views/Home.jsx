@@ -7,11 +7,12 @@ const Home = () => {
     return (
          <View>
              <NavColumn title="Projects">
-                 <Link to="goose">GOOSE (Grayson's Odd Operating System Endeavour)</Link>
+                 <Link className="main-nav-link" to="goose">GOOSE (Grayson's Odd Operating System Endeavour)</Link>
+                 <Link className="main-nav-link" to="ntm">NoTrackingMarkers</Link>
              </NavColumn>
              <NavColumn title="Utilities & Fun Things">
-                 <Link to="og_name_gen">"OG" name generator</Link>
-                 <Link to="checklist_builder">Rocketry Checklist Builder (WIP)</Link>
+                 <Link className="main-nav-link" to="og_name_gen">"OG" name generator</Link>
+                 <Link className="main-nav-link" to="checklist_builder">Rocketry Checklist Builder (WIP)</Link>
              </NavColumn>
          </View>
     );

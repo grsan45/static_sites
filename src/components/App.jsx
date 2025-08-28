@@ -6,6 +6,7 @@ import OGNameGen from "../views/OGNameGen"
 import GOOSE from "../views/GOOSE";
 import ChecklistBuilder from "../views/ChecklistBuilder";
 import NoMatch from "../views/NoMatch";
+import NTM from "../views/NTM";
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
 
                     <Route exact path="og_name_gen" element={<OGNameGen />}/>
                     <Route exact path="goose" element={<GOOSE />}/>
+                    <Route exact path="ntm" element={<NTM />}/>
                     <Route exact path="checklist_builder" element={<ChecklistBuilder />}/>
 
                     <Route path="*" element={<NoMatch status={404} />}/>

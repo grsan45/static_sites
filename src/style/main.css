@@ -11,6 +11,16 @@ ul {
     list-style-type: "- ";
 }
 
+a {
+    color: #8eadff;
+    text-decoration: underline;
+}
+
+
+a:hover {
+    color: #6b89e0;
+}
+
 * {
     font-family: 'Roboto', sans-serif;
     color:#fafafa
