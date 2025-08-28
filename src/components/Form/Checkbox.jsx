@@ -1,10 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCheck, faXmark} from "@fortawesome/free-solid-svg-icons";
 
-const Checkbox = ({name, text, action}) => {
+const Checkbox = ({name, action, initialValue}) => {
+    const [checked, setChecked] = useState(initialValue || false)
+    const doUpdate = (newValue) => {
+        setChecked(newValue);
+        if (action)
+            action(newValue);
+    }
+
     return (
-        <div className="btn-group">
-            <input type="checkbox" name={name} className="btn-check" id={name} onChange={action} />
-            <label htmlFor={name} className="btn btn-outline-primary" id={name + "Label"}>{text}</label>
+        <div>
+            <input type="checkbox" name={name} className="btn-check" id={name} onChange={e => doUpdate(e.target.checked)} checked={checked} />
+            <label htmlFor={name} className="btn btn-outline-primary" id={name + "Label"}><FontAwesomeIcon fixedWidth={true} icon={checked ? faCheck : faXmark} /></label>
         </div>
     );
 };
