@@ -2,11 +2,13 @@ import React from 'react';
 import View from "../components/View";
 import TabNav from "../components/Nav/TabNav";
 import {useLiveQuery} from "dexie-react-hooks";
-import {addEmptyItem, checklistDB, updateItem} from "../data/repository";
+import {addEmptyItem, checklistDB, removeItem, updateItem} from "../data/repository";
 import Button from "../components/Form/Button";
 import Col from "../components/Col";
 import Checkbox from "../components/Form/Checkbox";
 import TextArea from "../components/Form/TextArea";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faMinus} from "@fortawesome/free-solid-svg-icons";
 
 const SectionView = ({sectionId, sectionNumber}) => {
     const items = useLiveQuery(async () => {
@@ -24,14 +26,19 @@ const SectionView = ({sectionId, sectionNumber}) => {
                     <tr>
                         <th scope="col" className="col-1">Step</th>
                         <th scope="col">Description</th>
-                        <th scope="col" className="col-1">Completed</th>
+                        <th scope="col" className="col-1 text-center">Completed</th>
                     </tr>
                 </thead>
                 <tbody>
                     {items.map((item, idx) => (
                         <tr key={item.id}>
-                            <th scope="row">{`${sectionNumber}.${idx + 1}`}</th>
-                            <td><TextArea children={item.description} /></td>
+                            <th scope="row">
+                                <span style={{"marginRight": "0.5em"}}>{`${sectionNumber}.${idx + 1}`}</span>
+                                <Button name={`removeItem-${item.id}`}
+                                        action={_ => removeItem(item.id)}
+                                        text={<FontAwesomeIcon icon={faMinus}/>}/>
+                            </th>
+                            <td><TextArea children={item.description} onChange={val => updateItem(item.id, {description: val})}/></td>
                             <td>
                                 <div className="d-flex justify-content-center">
                                     <Checkbox name={`setCompleted-${item.id}`} initialValue={item.completed}
@@ -41,7 +48,7 @@ const SectionView = ({sectionId, sectionNumber}) => {
                         </tr>
                     ))}
                     <tr>
-                        <td colSpan="3">
+                        <td colSpan="4">
                             <div className="d-flex justify-content-center">
                                 <Button name={`addItem-${sectionId}`} text="Add Item" style={{width: '35%'}}
                                         action={() => addEmptyItem(sectionId)}/>

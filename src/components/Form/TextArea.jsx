@@ -7,7 +7,11 @@ const TextArea = ({children, onChange, formatter}) => {
     if (editing) {
         return (
             <textarea className="w-100 form-control bg-dark text-white"
-                      onBlur={() => setEditing(false)}
+                      onChange={e => setContent(e.target.value)}
+                      onBlur={() => {
+                          setEditing(false);
+                          onChange(content)
+                      }}
                       defaultValue={content}
                       autoFocus/>
         )

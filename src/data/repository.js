@@ -34,3 +34,11 @@ export const updateItem = async (itemId, update) => {
         console.error(`Failed to update item ${itemId}: ${err}`)
     }
 }
+
+export const removeItem = async (itemId) => {
+    try {
+        await checklistDB.items.delete(itemId, null);
+    } catch (err) {
+        console.error(`Failed to remove item ${itemId}: ${err}`)
+    }
+}
