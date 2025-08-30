@@ -8,8 +8,14 @@ import ChecklistBuilder from "../views/ChecklistBuilder";
 import NoMatch from "../views/NoMatch";
 import NTM from "../views/NTM";
 
+import hljs from "highlight.js/lib/core"
+import json from "highlight.js/lib/languages/json"
+
 
 const App = () => {
+    // Registering hljs languages. As if I've actually done bundle optimization anyway.
+    hljs.registerLanguage("json", json);
+
     return (
         <Router>
             <div>

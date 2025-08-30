@@ -4,7 +4,9 @@
  */
 
 body {
-    background-color:#1a1a1a
+    background-color: #1a1a1a;
+    font-family: 'Roboto', sans-serif;
+    color: #fafafa
 }
 
 ul {
@@ -19,9 +21,4 @@ a {
 
 a:hover {
     color: #6b89e0;
-}
-
-* {
-    font-family: 'Roboto', sans-serif;
-    color:#fafafa
 }

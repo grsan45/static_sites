@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 const View = ({children}) => {
     return (
-        <div className="container-fluid">
+        <div className="container-fluid min-vh-100 d-flex flex-column">
             <nav className="navbar navbar-expand-lg navbar-dark justify-content-between">
                 <Link to="/" className="navbar-brand" id="title">Grayson's <em>Things</em></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlinks">
@@ -25,9 +25,9 @@ const View = ({children}) => {
             </nav>
             <hr/>
 
-            <div className="row gy-5">{children}</div>
+            <div className="row gy-1">{children}</div>
 
-            <div className="container-fluid fixed-bottom opacity-75">
+            <div className="container-fluid opacity-75 mt-auto">
                 <p>This website and all projects, unless otherwise stated, are licensed under GNU-GPLv3</p>
             </div>
         </div>
