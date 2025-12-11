@@ -7,9 +7,6 @@ import Col from "../components/Col";
 const Home = () => {
     return (
          <View>
-             <Col>
-                 <h2>Test</h2>
-             </Col>
              <NavColumn title="Projects">
                  <Link className="main-nav-link" to="goose">GOOSE (Grayson's Odd Operating System Endeavour)</Link>
                  <Link className="main-nav-link" to="ntm">NoTrackingMarkers</Link>
